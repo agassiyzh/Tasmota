@@ -87,7 +87,47 @@ Examples :
 // !!! Remember that your changes GOES AT THE BOTTOM OF THIS FILE right before the last #endif !!!
 */
 
+#define USE_SR04                                 // Add support for HC-SR04 ultrasonic devices (+1k code)
+ #define SR04_MAX_SENSOR_DISTANCE  500          // Set sensor max detection distance
 
+#ifdef USE_IR_REMOTE
+#undef USE_IR_REMOTE
+#endif
+
+#ifdef USE_IR_SEND_NEC
+#undef USE_IR_SEND_NEC
+#endif
+
+#ifdef USE_IR_SEND_RC5
+#undef USE_IR_SEND_RC5
+#endif
+
+
+#ifdef USE_IR_SEND_RC6
+#undef USE_IR_SEND_RC6
+#endif
+
+
+#ifdef USE_IR_RECEIVE
+#undef USE_IR_RECEIVE
+#endif
+
+
+#ifdef USE_IR_SEND_NEC
+#undef USE_IR_SEND_NEC
+#endif
+
+#ifdef USE_IR_SEND_NEC
+#undef USE_IR_SEND_NEC
+#endif
+
+#ifdef USE_IR_SEND_NEC
+#undef USE_IR_SEND_NEC
+#endif
+
+#ifdef USE_IR_SEND_NEC
+#undef USE_IR_SEND_NEC
+#endif
 
 
 
