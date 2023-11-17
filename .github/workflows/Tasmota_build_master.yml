@@ -98,21 +98,7 @@ jobs:
     strategy:
       matrix:
         variant:
-          - tasmota32
-          - tasmota32-zbbrdgpro
-          - tasmota32-webcam
           - tasmota32-bluetooth
-          - tasmota32-nspanel
-          - tasmota32-display
-          - tasmota32-ir
-          - tasmota32-lvgl
-          - tasmota32c3
-          - tasmota32c3cdc
-          - tasmota32s2
-          - tasmota32s2cdc
-          - tasmota32s3
-          - tasmota32s3cdc
-          - tasmota32solo1
     steps:
       - uses: actions/checkout@v3
         with:
