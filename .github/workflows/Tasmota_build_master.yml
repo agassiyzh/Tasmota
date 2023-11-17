@@ -179,7 +179,7 @@ jobs:
           path: ./build_output
 
   Release:
-    needs: [base-images, base32-images, language-images]
+    needs: [base32-images]
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
