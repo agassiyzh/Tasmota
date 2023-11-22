@@ -100,4 +100,27 @@ Examples :
 #endif
 
 
+#undef USE_ENERGY_MARGIN_DETECTION              // Add support for Energy Margin detection (+1k6 code)
+  #undef USE_ENERGY_POWER_LIMIT                 // Add additional support for Energy Power Limit detection (+1k2 code)
+#undef USE_ENERGY_DUMMY                         // Add support for dummy Energy monitor allowing user values (+0k7 code)
+#undef USE_HLW8012                              // Add support for HLW8012, BL0937 or HJL-01 Energy Monitor for Sonoff Pow and WolfBlitz
+#undef USE_CSE7766                              // Add support for CSE7766 Energy Monitor for Sonoff S31 and Pow R2
+#undef USE_PZEM004T                             // Add support for PZEM004T Energy monitor (+2k code)
+#undef USE_PZEM_AC                              // Add support for PZEM014,016 Energy monitor (+1k1 code)
+#undef USE_PZEM_DC                              // Add support for PZEM003,017 Energy monitor (+1k1 code)
+#undef USE_MCP39F501                            // Add support for MCP39F501 Energy monitor as used in Shelly 2 (+3k1 code)
+  #undef SDM72_SPEED                        // SDM72-Modbus RS485 serial speed (default: 9600 baud)
+  #undef SDM120_SPEED                       // SDM120-Modbus RS485 serial speed (default: 2400 baud)
+  #undef SDM230_SPEED                       // SDM230-Modbus RS485 serial speed (default: 9600 baud)
+  #undef SDM630_SPEED                       // SDM630-Modbus RS485 serial speed (default: 9600 baud)
+  #undef DDS2382_SPEED                  // Hiking DDS2382 Modbus RS485 serial speed (default: 9600 baud)
+  #undef DDSU666_SPEED                      // Chint DDSU666 Modbus RS485 serial speed (default: 9600 baud)
+  #undef SOLAXX1_SPEED                      // Solax X1 Modbus RS485 serial speed (default: 9600 baud)
+  #undef LE01MR_SPEED                       // LE-01MR modbus baudrate (default: 9600)
+  #undef LE01MR_ADDR                        // LE-01MR modbus address (default: 0x01)
+#undef USE_BL09XX                               // Add support for various BL09XX Energy monitor as used in Blitzwolf SHP-10 or Sonoff Dual R3 v2 (+1k6 code)
+  #undef IEM3000_SPEED                     // iEM3000-Modbus RS485 serial speed (default: 19200 baud)
+  #undef IEM3000_ADDR               
+
+
 #endif  // _USER_CONFIG_OVERRIDE_H_
