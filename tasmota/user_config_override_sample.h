@@ -104,4 +104,27 @@ Examples :
 #undef USE_BL09XX                               // Add support for various BL09XX Energy monitor as used in Blitzwolf SHP-10 or Sonoff Dual R3 v2 (+1k6 code)
 
 
+#undef USE_TUYA_MCU
+  #undef TUYA_DIMMER_ID
+  #undef USE_TUYA_TIME
+
+
+
+// -- Optional light modules ----------------------
+#undef USE_LIGHT                                // Add support for light control
+#undef USE_WS2812                               // WS2812 Led string using library NeoPixelBus (+5k code, +1k mem, 232 iram) - Disable by //
+  #undef USE_WS2812_RMT                        // ESP32 only, hardware RMT support (default). Specify the RMT channel 0..7. This should be preferred to software bit bang.
+  #undef USE_WS2812_CTYPE                // Color type (NEO_RGB, NEO_GRB, NEO_BRG, NEO_RBG, NEO_RGBW, NEO_GRBW)
+#undef USE_MY92X1                               // Add support for MY92X1 RGBCW led controller as used in Sonoff B1, Ailight and Lohas
+#undef USE_SM16716                              // Add support for SM16716 RGB LED controller (+0k7 code)
+#undef USE_SM2135                               // Add support for SM2135 RGBCW led control as used in Action LSC (+0k6 code)
+#undef USE_SM2335                               // Add support for SM2335 RGBCW led control as used in SwitchBot Color Bulb (+0k7 code)
+#undef USE_BP1658CJ                             // Add support for BP1658CJ RGBCW led control as used in Orein OS0100411267 Bulb
+#undef USE_BP5758D                              // Add support for BP5758D RGBCW led control as used in some Tuya lightbulbs (+0k8 code)
+#undef USE_SONOFF_L1                            // Add support for Sonoff L1 led control
+#undef USE_ELECTRIQ_MOODL                       // Add support for ElectriQ iQ-wifiMOODL RGBW LED controller (+0k3 code)
+#undef USE_LIGHT_PALETTE                        // Add support for color palette (+0k7 code)
+#undef USE_LIGHT_VIRTUAL_CT                     // Add support for Virtual White Color Temperature (+1.1k code)
+#undef USE_DGR_LIGHT_SEQUENCE                   // Add support for device group light sequencing (requires USE_DEVICE_GROUPS) (+0k2 code)
+
 #endif  // _USER_CONFIG_OVERRIDE_H_
