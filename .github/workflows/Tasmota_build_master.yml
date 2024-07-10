@@ -22,8 +22,8 @@ jobs:
       matrix:
         variant:
           # - tasmota32solo1-safeboot
-          - tasmota32-safeboot
-          # - tasmota32c3-safeboot
+          # - tasmota32-safeboot
+          - tasmota32c3-safeboot
           # - tasmota32c3cdc-safeboot
           # - tasmota32s2-safeboot
           # - tasmota32s2cdc-safeboot
