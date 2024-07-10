@@ -98,7 +98,7 @@ jobs:
     strategy:
       matrix:
         variant:
-          - tasmota32-bluetooth
+          - tasmota32c3-bluetooth
     steps:
       - uses: actions/checkout@v3
         with:
