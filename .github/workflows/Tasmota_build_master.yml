@@ -114,6 +114,7 @@ jobs:
           pip install wheel
           pip install -U platformio
           cp ./platformio_tasmota_cenv_sample.ini ./platformio_tasmota_cenv.ini
+          cp tasmota/user_config_override_sample.h tasmota/user_config_override.h
       - name: Download safeboot firmwares
         uses: actions/download-artifact@v3
         with:
