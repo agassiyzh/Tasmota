@@ -58,7 +58,7 @@ jobs:
 
   base-images:
     runs-on: ubuntu-latest
-    if: github.repository == 'agassiyzh/Tasmota' || true
+    if: github.repository == 'agassiyzh/Tasmota' && false
     continue-on-error: true
     strategy:
       matrix:
@@ -156,7 +156,7 @@ jobs:
   language-images:
     needs: safeboot-images
     runs-on: ubuntu-latest
-    if: github.repository == 'agassiyzh/Tasmota' || true
+    if: github.repository == 'agassiyzh/Tasmota' && false
     continue-on-error: true
     strategy:
       matrix:
