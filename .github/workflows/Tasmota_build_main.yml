@@ -1,9 +1,9 @@
-name: Build_firmware_master
+name: Build_firmware_main
 
 on:
   workflow_dispatch:      # Start a workflow
   push:
-    branches: master
+    branches: main
     paths-ignore:
     - '.github/**'        # Ignore changes towards the .github directory
     - '**.md'             # Do no build if *.md files changes
@@ -16,26 +16,26 @@ concurrency:
 jobs:
   safeboot-images:
     runs-on: ubuntu-latest
-    if: github.repository == 'arendst/Tasmota'
+    if: github.repository == 'agassiyzh/Tasmota'
     continue-on-error: true
     strategy:
       matrix:
         variant:
-          - tasmota32-safeboot
-          - tasmota32solo1-safeboot
-          - tasmota32c2-safeboot
+          # - tasmota32-safeboot
+          # - tasmota32solo1-safeboot
+          # - tasmota32c2-safeboot
           - tasmota32c3-safeboot
-          - tasmota32c3ser-safeboot
-          - tasmota32s2-safeboot
-          - tasmota32s2cdc-safeboot
-          - tasmota32s3-safeboot
-          - tasmota32s3ser-safeboot
-          - tasmota32c6-safeboot
-          - tasmota32c6ser-safeboot
+          # - tasmota32c3ser-safeboot
+          # - tasmota32s2-safeboot
+          # - tasmota32s2cdc-safeboot
+          # - tasmota32s3-safeboot
+          # - tasmota32s3ser-safeboot
+          # - tasmota32c6-safeboot
+          # - tasmota32c6ser-safeboot
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: master
+          ref: main
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -58,7 +58,7 @@ jobs:
 
   base-images:
     runs-on: ubuntu-latest
-    if: github.repository == 'arendst/Tasmota'
+    if: github.repository == 'agassiyzh/Tasmota' || true
     continue-on-error: true
     strategy:
       matrix:
@@ -76,7 +76,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: master
+          ref: main
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -100,30 +100,30 @@ jobs:
   base32-images:
     needs: safeboot-images
     runs-on: ubuntu-latest
-    if: github.repository == 'arendst/Tasmota'
+    if: github.repository == 'agassiyzh/Tasmota'
     continue-on-error: true
     strategy:
       matrix:
         variant:
-          - tasmota32
-          - tasmota32-zbbrdgpro
-          - tasmota32-webcam
-          - tasmota32-bluetooth
-          - tasmota32-nspanel
-          - tasmota32-display
-          - tasmota32-ir
-          - tasmota32-lvgl
-          - tasmota32c2
-          - tasmota32c3
-          - tasmota32c6
-          - tasmota32s2
-          - tasmota32s2cdc
-          - tasmota32s3
-          - tasmota32solo1
+          # - tasmota32
+          # - tasmota32-zbbrdgpro
+          # - tasmota32-webcam
+          - tasmota32c3-bluetooth
+          # - tasmota32-nspanel
+          # - tasmota32-display
+          # - tasmota32-ir
+          # - tasmota32-lvgl
+          # - tasmota32c2
+          # - tasmota32c3
+          # - tasmota32c6
+          # - tasmota32s2
+          # - tasmota32s2cdc
+          # - tasmota32s3
+          # - tasmota32solo1
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: master
+          ref: main
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -133,6 +133,7 @@ jobs:
           pip install wheel
           pip install -U platformio
           cp ./platformio_override_sample.ini ./platformio_override.ini
+          cp ./platformio_tasmota_cenv_sample.ini ./platformio_tasmota_cenv.ini
       - name: Download safeboot firmwares
         uses: jason2866/download-artifact@v3.0.4
         with:
@@ -155,7 +156,7 @@ jobs:
   language-images:
     needs: safeboot-images
     runs-on: ubuntu-latest
-    if: github.repository == 'arendst/Tasmota'
+    if: github.repository == 'agassiyzh/Tasmota' || true
     continue-on-error: true
     strategy:
       matrix:
@@ -164,7 +165,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: master
+          ref: main
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -228,9 +229,9 @@ jobs:
     needs: Release
     runs-on: ubuntu-latest
     steps:
-    - name: Dispatch workflow in arendst/Tasmota-firmware
+    - name: Dispatch workflow in agassiyzh/Tasmota-firmware
       run: |
-         curl -X POST https://api.github.com/repos/arendst/Tasmota-firmware/actions/workflows/fetch_deploy.yml/dispatches \
+         curl -X POST https://api.github.com/repos/agassiyzh/Tasmota-firmware/actions/workflows/fetch_deploy.yml/dispatches \
          -H 'Accept: application/vnd.github.everest-preview+json' \
          -u ${{ secrets.API_TOKEN_GITHUB }} \
          --data '{"ref": "gh_actions"}'
